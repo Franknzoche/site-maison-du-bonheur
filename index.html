@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>La Maison du Bonheur — Boutique</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img id="siteLogo" src="images/logo.jpg" alt="La Maison du Bonheur - logo">
+        <div class="brand-text">
+          <h1>La Maison Du Bonheur</h1>
+          <p class="tagline">Accessoires électroniques</p>
+        </div>
+      </div>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="#home">Accueil</a></li>
+          <li><a href="#products">Produits</a></li>
+          <li><a href="#histoire">Notre Histoire</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button id="openCartBtn" class="cart-btn" aria-controls="cartDrawer" aria-expanded="false" title="Panier">
+         <img src="./images/pannier.png" alt="icon panier" class="icon-panier"> <span id="cartCount">0</span>
+        </button>
+        <button id="menuToggle" class="menu-toggle" aria-expanded="false" aria-controls="mobileNav">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- mobile nav (animation) -->
+  <nav id="mobileNav" class="mobile-nav" aria-hidden="true">
+    <ul>
+      <li><a class="mobile-link" href="#home">Accueil</a></li>
+      <li><a class="mobile-link" href="#products">Produits</a></li>
+      <li><a class="mobile-link" href="#categories">Catégories</a></li>
+      <li><a class="mobile-link" href="#histoire">Notre Histoire</a></li>
+      <li><a class="mobile-link" href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="container main-content">
+
+    <section id="home" class="hero">
+      <div class="hero-left">
+        <h2>Les meilleurs accessoires pour ton quotidien</h2>
+        <p class="hero-sub">Casques, écouteurs, powerbanks, et plus — qualité et garantie.</p>
+        <div class="cta-row">
+          <a href="#products" class="btn btn-primary">Découvrir nos produits</a>
+          <a href="#histoire" class="btn btn-ghost">Notre Histoire</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <img src="images/40.jpg" alt="Produit en vedette">
+      </div>
+    </section>
+
+    <!-- CATEGORIES + PRODUITS -->
+    <section class="catalog-grid">
+      <aside class="sidebar" aria-labelledby="categories">
+        <h3 id="categories">Catégories</h3>
+        <ul id="categoryList" class="category-list" role="list"></ul>
+
+        <div class="category-select">
+          <label for="catSelect"><strong>Rechercher</strong></label>
+          <select id="catSelect" aria-label="Sélection de catégorie">
+            <option value="all">Toutes les catégories</option>
+          </select>
+        </div>
+
+        <div class="category-products">
+          <h4>Produits Trouvés: </h4>
+          <ul id="categoryProductsList"></ul>
+        </div>
+      </aside>
+
+      <section class="products-area" id="products">
+        <div class="topbar">
+          <h3>Produits</h3>
+          <div class="search-wrap">
+            <input id="searchInput" placeholder="Rechercher un produit..." aria-label="Recherche de produit">
+          </div>
+        </div>
+
+        <div id="productsGrid" class="grid" role="list"></div>
+      </section>
+    </section>
+
+<section id="histoire" class="histoire">
+<h3>Notre Histoire</h3>
+<div class="histoire-image">
+  <p>La Maison du Bonheur est née d’un rêve simple : apporter un peu de joie dans la vie de chacun à travers des produits utiles et inspirants.
+     Depuis nos débuts, nous sélectionnons chaque article avec soin pour allier qualité, style et accessibilité. Notre objectif est de créer une expérience unique où chaque client trouve un peu de bonheur à offrir ou à s’offrir.
+     Aujourd’hui, La Maison du Bonheur est bien plus qu’une boutique : c’est une communauté animée par la passion et la créativité. Merci de faire partie de cette belle aventure
+  </p>
+  <img src="./images/histoire2.jpeg" alt="image-fondateur">
+</div>  
+</section>
+
+    <!-- FOOTER -->
+    <footer id="contact" class="site-footer">
+      <div class="footer-inner">
+        <div class="contact-block">
+          <h4>Contact</h4>
+          <p>Téléphone / WhatsApp : <a href="tel:+237 6 53 36 63 04">+237 6 53 36 63 04</a></p>
+          <p>Email : <a href="mailto:fnzoche@gmail.com">fnzoche@gmail.com</a></p>
+          <p>Adresse : Douala (Boutique)</p>
+        </div>
+        <div class="copy">
+          © <span id="year"></span> La Maison du Bonheur <br><br>
+          <a href="https://wa.me/+237 6 53 36 63 04 " target="_blank">WhatsApp</a>
+          <a href="https://www.facebook.com/profile.php?id=61565347733585" target="_blank">facebook</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- CART DRAWER (fixed) -->
+  <aside id="cartDrawer" class="drawer" aria-hidden="true">
+    <header class="drawer-header">
+      <h4>Ton panier</h4>
+      <button id="closeCartBtn" aria-label="Fermer le panier">✖</button>
+    </header>
+
+    <div id="cartItems" class="drawer-body" role="region" aria-live="polite"></div>
+
+    <div class="drawer-footer">
+      <div class="subtotal">Total : <strong id="cartTotal">0</strong> FCFA</div>
+
+      <div class="checkout">
+        <h5>Envoyer la commande</h5>
+        <input id="custName" type="text" placeholder="Nom complet" />
+        <input id="custPhone" type="tel" placeholder="Téléphone (+237...)" />
+        <textarea id="custAddress" rows="2" placeholder="Adresse / Remarques (ex: Retrait en boutique)"></textarea>
+
+        <div class="send-actions">
+          <button id="sendWhats" class="btn whatsapp">Envoyer via WhatsApp</button>
+          <button id="sendMail" class="btn mail">Envoyer par Email</button>
+        </div>
+
+        <p class="hint">Ton message contiendra le détail du panier et tes coordonnées.</p>
+      </div>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
